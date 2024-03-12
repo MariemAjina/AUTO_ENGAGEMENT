@@ -1,20 +1,28 @@
 package utils;
 
+import com.google.common.collect.ImmutableMap;
 import io.appium.java_client.AppiumDriver;
+import io.appium.java_client.MobileElement;
 import io.appium.java_client.android.AndroidDriver;
+import io.appium.java_client.ios.IOSDriver;
 import org.openqa.selenium.*;
 
-import java.lang.reflect.Field;
+public class MobileUtils {
+    //private AppiumDriver driver;
 
-public class AndroidUtils {
-    private AppiumDriver driver;
+    //MobileUtils
+    private AppiumDriver<MobileElement> driver;
 
 
 
-    public AndroidUtils(AppiumDriver driver) {
+//    public AndroidUtils(AppiumDriver driver) {
+//        this.driver = driver;
+//    }
+
+    //MobileUtils
+    public MobileUtils(AppiumDriver<MobileElement> driver) {
         this.driver = driver;
     }
-
     /**
      * Function to pause the execution for the specified time period
      *
@@ -28,15 +36,9 @@ public class AndroidUtils {
         }
     }
 
-    public WebElement findElementById(String id) {
 
-        return driver.findElement(By.id(id));
-    }
 
-    public void clickElementById(String elementId) {
-        WebElement element = driver.findElement(By.id(elementId));
-        element.click();
-    }
+
     public Boolean objectExists(By by) {
         try {
             if (driver.findElements(by).size() == 0) {
@@ -82,36 +84,37 @@ public class AndroidUtils {
             throw new ElementNotVisibleException("Element Not Found");
         }
     }
-    public static void clickElementById(AppiumDriver driver,String packagePrefix, String elementId) {
-//        try {
-//            driver.findElement(By.id(elementId)).click();
-//        } catch (NoSuchElementException e) {
-//            System.out.println("L'élément avec l'ID " + elementId + " n'a pas été trouvé.");
-//        }
-        // Vérifier le package actuel
-        String currentPackage = ((AndroidDriver) driver).getCurrentPackage();
-        if (!currentPackage.startsWith(packagePrefix)) {
-            System.out.println("Le package actuel ne correspond pas au préfixe attendu.");
-            return;
-        }
 
-        // Si le package est correct, cliquez sur l'élément
+
+    public static String getCurrentBundleId(IOSDriver<MobileElement> driver) {
+        String bundleId = null;
         try {
-            driver.findElement(By.id(elementId)).click();
-        } catch (NoSuchElementException e) {
-            System.out.println("L'élément avec l'ID " + elementId + " n'a pas été trouvé.");
+            // Utilisez l'API de l'application d'Appium pour obtenir le bundle ID
+            bundleId = (String) driver.executeScript("mobile: launchApp", ImmutableMap.of("bundleId", ""));
+        } catch (Exception e) {
+            e.printStackTrace();
         }
+        return bundleId;
     }
+    public static void clickElementByIdWithPackage(AppiumDriver<MobileElement> driver, String packageName, String locatorId) {
+        String currentPackage = null;
+        String currentBundleId = null;
+        if (driver instanceof AndroidDriver) {
+            currentPackage = ((AndroidDriver<MobileElement>) driver).getCurrentPackage();
+        } else if (driver instanceof IOSDriver) {
+            // Implémentez une logique pour récupérer le package actuel sur iOS
+            // Par exemple, vous pouvez utiliser l'API de l'application pour obtenir le bundle ID de l'application
+            // Consultez la documentation Appium pour trouver la méthode appropriée pour votre cas d'utilisation
+            // currentBundleId = getCurrentBundleId((IOSDriver<MobileElement>) driver);
+            System.out.println("IOS************");
 
-    public static void clickElementByIdWithPackage(AppiumDriver driver, String packageName, String locatorId) {
-        // Vérifier le package actuel
-        String currentPackage = ((AndroidDriver) driver).getCurrentPackage();
-        if (!currentPackage.startsWith(packageName)) {
+        }
+
+        if (currentPackage == null || !currentPackage.startsWith(packageName)) {
             System.out.println("Le package actuel ne correspond pas au packageName attendu.");
             return;
         }
 
-        // Si le package est correct, cliquez sur l'élément
         try {
             driver.findElement(By.id(locatorId)).click();
         } catch (NoSuchElementException e) {
@@ -119,6 +122,7 @@ public class AndroidUtils {
         }
     }
 
+    //pour les deux
     public static String getFullId(String packageName, String elementId) {
         //  return packagePrefix + elementId;
         String fullId = packageName + elementId;
@@ -126,5 +130,5 @@ public class AndroidUtils {
         return fullId;
     }
 
-}
 
+}

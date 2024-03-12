@@ -1,0 +1,5 @@
+automationName=XCUITest
+platformVersion=17.2
+deviceName=iPhone 15 Pro
+app=/Users/mariemajina/Downloads/Payload/wdiodemoapp.app
+platformName=iOS
