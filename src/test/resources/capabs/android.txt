@@ -1,7 +1,6 @@
 automationName=UIAutomator2
 platformName=android
-app=/Users/mariemajina/IdeaProjects/TestAutoEngagement/src/test/resources/App/android/Pflege_Android_3.4.0.8080.apk
-appPackage=com.mobelite.pflegedevandroid
-appActivity=com.mobelite.emee.ui.welcome.WelcomeActivity
-deviceName=emulator-5554
+app=/Users/mariemajina/IdeaProjects/TestAutoEngagement/src/test/resources/App/android/Infirmier_2.7.0.8554.apk
+appPackage=com.mobelite.infirmier
+deviceName=Pixel_3a_API_34_extension_level_7_x86_64
 uiautomator2ServerInstallTimeout= 50000

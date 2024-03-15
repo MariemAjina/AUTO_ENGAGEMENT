@@ -1,0 +1,56 @@
+{
+    "user_content_state": {
+        "Applications": [
+            {
+                "AppName": "EMEE_UK",
+                "versions": [
+                    {
+                        "VersionContent": 1,
+                        "Content": [
+                            {
+                                "content_title": "ClinicalKey Student Question Banks",
+                                "subcontents_new": [
+                                    "Immunology"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "AppName": "ENEA_UK",
+                "versions": [
+                    {
+                        "VersionContent": 1,
+                        "Content": [
+                            {
+                                "content_title": "ClinicalKey Student Question Banks",
+                                "subcontents_new": [
+                                    "Anatomy",
+                                    "Pathophysiology",
+                                    "Physiology 3"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            },
+            {
+                "AppName": "EMEE_DE",
+                "versions": [
+                    {
+                        "VersionContent": 1,
+                        "Content": [
+                            {
+                                "content_title": "ClinicalKey Student Quiz",
+                                "subcontents_new": [
+                                    "Physik"
+                                ]
+                            }
+                        ]
+                    }
+                ]
+            }
+        ]
+    }
+}
