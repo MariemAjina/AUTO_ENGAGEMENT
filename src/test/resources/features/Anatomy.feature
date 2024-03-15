@@ -1,4 +1,4 @@
-Feature: User access to the anatomy bare bones module
+Feature: [EMEE-11483]User access to the anatomy bare bones module
   @ANATOMY
   Scenario: Displaying anatomy card on the home page
     Given the welcome screen dispayed
