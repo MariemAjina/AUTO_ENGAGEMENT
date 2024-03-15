@@ -11,7 +11,7 @@ public class MobileUtils {
     //private AppiumDriver driver;
 
     //MobileUtils
-    private AppiumDriver<MobileElement> driver;
+    private static AppiumDriver<MobileElement> driver;
 
 
 
@@ -39,18 +39,15 @@ public class MobileUtils {
 
 
 
-    public Boolean objectExists(By by) {
+    public static boolean objectExists(By by) {
         try {
-            if (driver.findElements(by).size() == 0) {
-                return false;
-            } else {
-                return true;
-            }
-        }catch (Exception ex){
+            return driver.findElements(by).size() > 0;
+        } catch (Exception ex) {
             ex.printStackTrace();
             return false;
         }
     }
+
 
     public boolean enterValueInTextBox(String text, By by) {
         boolean flag = false;
