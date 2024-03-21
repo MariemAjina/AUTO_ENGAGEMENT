@@ -1,0 +1,940 @@
+{
+  "welcomeLabelName": "Welcome ",
+  "descriptionLabel": "Well done, you are almost there. Just a few quick steps to personalise your experience to make sure that you get the most out of SurviveMed. Ready? Go...",
+  "stepsCount": 4,
+  "gaEventCategory": "Personalization",
+  "steps": [
+    {
+      "id": "role",
+      "visibleWhen": null,
+      "unlockedWhen": null,
+      "skipWhen": null,
+      "order": 0,
+      "title": "I am",
+      "placeholder": "Please select a role",
+      "isSearchable": false,
+      "items": [
+        {
+          "title": "A nursing student",
+          "order": 0,
+          "value": "student",
+          "visibleWhen": null
+        },
+        {
+          "title": "A nursing professional",
+          "order": 1,
+          "value": "professional",
+          "visibleWhen": null
+        },
+        {
+          "title": "Just curious",
+          "order": 2,
+          "value": "other",
+          "visibleWhen": null
+        }
+      ],
+      "gaEventAction": "Role Selected",
+      "gaEventKey": "role_",
+      "pendoEventKey": "user_roles",
+      "auth0EventKey": [
+        "user_roles"
+      ]
+    },
+    {
+      "id": "country",
+      "visibleWhen": [
+        "role_student",
+        "role_professional"
+      ],
+      "skipWhen": null,
+      "unlockedWhen": "role",
+      "order": 1,
+      "title": "Country",
+      "placeholder": "Please select a country",
+      "isSearchable": true,
+      "searchPlaceholder": "Search for a country",
+      "items": [
+        {
+          "title": "India",
+          "order": 1,
+          "value": "IN",
+          "visibleWhen": null
+        },
+        {
+          "title": "Ireland",
+          "order": 2,
+          "value": "IE",
+          "visibleWhen": null
+        },
+        {
+          "title": "United Kingdom",
+          "order": 4,
+          "value": "GB",
+          "visibleWhen": null
+        },
+        {
+          "title": "Other",
+          "order": 5,
+          "value": "Other",
+          "visibleWhen": null
+        }
+      ],
+      "gaEventAction": "Country selected",
+      "gaEventKey": "country_",
+      "pendoEventKey": "visitor_country",
+      "auth0EventKey": [
+        "address",
+        "country"
+      ]
+    },
+    {
+      "id": "university",
+      "visibleWhen": [
+        "role_student"
+      ],
+      "unlockedWhen": "country",
+      "skipWhen": [
+        "country_other"
+      ],
+      "order": 2,
+      "title": "I study at",
+      "placeholder": "Please select a university",
+      "isSearchable": true,
+      "searchPlaceholder": "Search for a university",
+      "items": [
+          {
+              "title": "Abertay University",
+              "order": 0,
+              "value": "Abertay University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Alpine Institute",
+              "order": 1,
+              "value": "Alpine Institute",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Anglia Ruskin University",
+              "order": 2,
+              "value": "Anglia Ruskin University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Ara Institute of Canterbury",
+              "order": 3,
+              "value": "Ara Institute of Canterbury",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Athlone Institute of Technology",
+              "order": 4,
+              "value": "Athlone Institute of Technology",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Atlantic Technological University",
+              "order": 5,
+              "value": "Atlantic Technological University",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Australian Catholic University",
+              "order": 6,
+              "value": "Australian Catholic University",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Bangor University",
+              "order": 7,
+              "value": "Bangor University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Birmingham City University",
+              "order": 8,
+              "value": "Birmingham City University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Bournemouth University",
+              "order": 9,
+              "value": "Bournemouth University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Bristol, University of the West of England",
+              "order": 10,
+              "value": "Bristol, University of the West of England",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Buckinghamshire New University",
+              "order": 11,
+              "value": "Buckinghamshire New University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Canberra Institute of Technology - Reid Campus",
+              "order": 12,
+              "value": "Canberra Institute of Technology - Reid Campus",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Canterbury Christ Church University",
+              "order": 13,
+              "value": "Canterbury Christ Church University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Cardiff University",
+              "order": 14,
+              "value": "Cardiff University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Charles Sturt University",
+              "order": 15,
+              "value": "Charles Sturt University",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Chisholm Institute of TAFE Frankston Campus",
+              "order": 16,
+              "value": "Chisholm Institute of TAFE Frankston Campus",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "City, University of London",
+              "order": 17,
+              "value": "City, University of London",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Coventry University",
+              "order": 18,
+              "value": "Coventry University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "De Montfort University",
+              "order": 19,
+              "value": "De Montfort University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Dublin City University",
+              "order": 20,
+              "value": "Dublin City University",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Dundalk Institute of Technology",
+              "order": 21,
+              "value": "Dundalk Institute of Technology",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Edge Hill University",
+              "order": 22,
+              "value": "Edge Hill University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Edinburgh Napier University",
+              "order": 23,
+              "value": "Edinburgh Napier University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Education Training and Employment Australia Pty Ltd",
+              "order": 24,
+              "value": "Education Training and Employment Australia Pty Ltd",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "EmployEase",
+              "order": 25,
+              "value": "EmployEase",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Glasgow Caledonian University",
+              "order": 26,
+              "value": "Glasgow Caledonian University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Glyndwr University",
+              "order": 27,
+              "value": "Glyndwr University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Goulburn Ovens Institute of TAFE",
+              "order": 28,
+              "value": "Goulburn Ovens Institute of TAFE",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Griffith University",
+              "order": 29,
+              "value": "Griffith University",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Hibernia College",
+              "order": 30,
+              "value": "Hibernia College",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Holmesglen Institute of TAFE - Chadstone Campus",
+              "order": 31,
+              "value": "Holmesglen Institute of TAFE - Chadstone Campus",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Keele University",
+              "order": 32,
+              "value": "Keele University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Key 2 Learning College",
+              "order": 33,
+              "value": "Key 2 Learning College",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "King's College London",
+              "order": 34,
+              "value": "King's College London",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Kingston/St George's University of London",
+              "order": 35,
+              "value": "Kingston/St George's University of London",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Leeds Beckett University",
+              "order": 36,
+              "value": "Leeds Beckett University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Limerick University",
+              "order": 37,
+              "value": "Limerick University",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Liverpool John Moores University",
+              "order": 38,
+              "value": "Liverpool John Moores University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "London South Bank University",
+              "order": 39,
+              "value": "London South Bank University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Manchester Metropolitan University",
+              "order": 40,
+              "value": "Manchester Metropolitan University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Manukau Institute of Technology",
+              "order": 41,
+              "value": "Manukau Institute of Technology",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Mater Education Ltd",
+              "order": 42,
+              "value": "Mater Education Ltd",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Middlesex University",
+              "order": 43,
+              "value": "Middlesex University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Munster Technological University",
+              "order": 44,
+              "value": "Munster Technological University",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "National University of Ireland",
+              "order": 45,
+              "value": "National University of Ireland",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Nelson Marlborough Institute of Technology",
+              "order": 46,
+              "value": "Nelson Marlborough Institute of Technology",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "North East Wales Institute of Higher Education",
+              "order": 47,
+              "value": "North East Wales Institute of Higher Education",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "NorthTec",
+              "order": 48,
+              "value": "NorthTec",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Northumbria University",
+              "order": 49,
+              "value": "Northumbria University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Open University",
+              "order": 50,
+              "value": "Open University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Oxford Brookes University",
+              "order": 51,
+              "value": "Oxford Brookes University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Queen Margaret University, Edinburgh",
+              "order": 52,
+              "value": "Queen Margaret University, Edinburgh",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Queen's University Belfast",
+              "order": 53,
+              "value": "Queen's University Belfast",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "RMIT University",
+              "order": 54,
+              "value": "RMIT University",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Robert Gordon University",
+              "order": 55,
+              "value": "Robert Gordon University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Royal Australasian College of Surgeons",
+              "order": 56,
+              "value": "Royal Australasian College of Surgeons",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Sheffield Hallam University",
+              "order": 57,
+              "value": "Sheffield Hallam University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Solent University",
+              "order": 58,
+              "value": "Solent University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "South Devon College",
+              "order": 59,
+              "value": "South Devon College",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "St Angela's College, Sligo",
+              "order": 60,
+              "value": "St Angela's College, Sligo",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Staffordshire University",
+              "order": 61,
+              "value": "Staffordshire University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Swansea University",
+              "order": 62,
+              "value": "Swansea University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "TAFE NSW",
+              "order": 63,
+              "value": "TAFE NSW",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "TAFE SA",
+              "order": 64,
+              "value": "TAFE SA",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "TasTAFE",
+              "order": 65,
+              "value": "TasTAFE",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Te Whare Wananga o Awanuiarangi",
+              "order": 66,
+              "value": "Te Whare Wananga o Awanuiarangi",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Teeside University, Middlesbrough",
+              "order": 67,
+              "value": "Teeside University, Middlesbrough",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "The University of Melbourne",
+              "order": 68,
+              "value": "The University of Melbourne",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Toi Ohomai Institute of Technology - Tauranga Campus",
+              "order": 69,
+              "value": "Toi Ohomai Institute of Technology - Tauranga Campus",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Torrens Global Education Services Pty Ltd",
+              "order": 70,
+              "value": "Torrens Global Education Services Pty Ltd",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Trinity College Dublin",
+              "order": 71,
+              "value": "Trinity College Dublin",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Ulster Polytechnic",
+              "order": 72,
+              "value": "Ulster Polytechnic",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Ulster University",
+              "order": 73,
+              "value": "Ulster University",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Unitec Institute of Technology",
+              "order": 74,
+              "value": "Unitec Institute of Technology",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Universal College of Learning",
+              "order": 75,
+              "value": "Universal College of Learning",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "University College Cork",
+              "order": 76,
+              "value": "University College Cork",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "University College Dublin",
+              "order": 77,
+              "value": "University College Dublin",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "University of Bedfordshire",
+              "order": 78,
+              "value": "University of Bedfordshire",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Birmingham",
+              "order": 79,
+              "value": "University of Birmingham",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Bolton",
+              "order": 80,
+              "value": "University of Bolton",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Bradford",
+              "order": 81,
+              "value": "University of Bradford",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Brighton",
+              "order": 82,
+              "value": "University of Brighton",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Central Lancashire",
+              "order": 83,
+              "value": "University of Central Lancashire",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Chester",
+              "order": 84,
+              "value": "University of Chester",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Cumbria",
+              "order": 85,
+              "value": "University of Cumbria",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Derby",
+              "order": 86,
+              "value": "University of Derby",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Dundee",
+              "order": 87,
+              "value": "University of Dundee",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of East Anglia",
+              "order": 88,
+              "value": "University of East Anglia",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of East London",
+              "order": 89,
+              "value": "University of East London",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Edinburgh",
+              "order": 90,
+              "value": "University of Edinburgh",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Essex",
+              "order": 91,
+              "value": "University of Essex",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Glasgow",
+              "order": 92,
+              "value": "University of Glasgow",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Gloucestershire",
+              "order": 93,
+              "value": "University of Gloucestershire",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Greenwich",
+              "order": 94,
+              "value": "University of Greenwich",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Hertfordshire",
+              "order": 95,
+              "value": "University of Hertfordshire",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Huddersfield",
+              "order": 96,
+              "value": "University of Huddersfield",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Hull",
+              "order": 97,
+              "value": "University of Hull",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Leeds",
+              "order": 98,
+              "value": "University of Leeds",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Leicester",
+              "order": 99,
+              "value": "University of Leicester",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Lincoln",
+              "order": 100,
+              "value": "University of Lincoln",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Liverpool",
+              "order": 101,
+              "value": "University of Liverpool",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Manchester",
+              "order": 102,
+              "value": "University of Manchester",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Northampton",
+              "order": 103,
+              "value": "University of Northampton",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Nottingham",
+              "order": 104,
+              "value": "University of Nottingham",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Plymouth",
+              "order": 105,
+              "value": "University of Plymouth",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Portsmouth",
+              "order": 106,
+              "value": "University of Portsmouth",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Salford",
+              "order": 107,
+              "value": "University of Salford",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Sheffield",
+              "order": 108,
+              "value": "University of Sheffield",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of South Wales",
+              "order": 109,
+              "value": "University of South Wales",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Southampton",
+              "order": 110,
+              "value": "University of Southampton",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Stirling",
+              "order": 111,
+              "value": "University of Stirling",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Suffolk",
+              "order": 112,
+              "value": "University of Suffolk",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Sunderland",
+              "order": 113,
+              "value": "University of Sunderland",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Surrey",
+              "order": 114,
+              "value": "University of Surrey",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Waikato",
+              "order": 115,
+              "value": "University of Waikato",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "University of West London",
+              "order": 116,
+              "value": "University of West London",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Wolverhampton",
+              "order": 117,
+              "value": "University of Wolverhampton",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of Worcester",
+              "order": 118,
+              "value": "University of Worcester",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of York",
+              "order": 119,
+              "value": "University of York",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of the Highlands and Islands",
+              "order": 120,
+              "value": "University of the Highlands and Islands",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "University of the West of Scotland",
+              "order": 121,
+              "value": "University of the West of Scotland",
+              "visibleWhen": "country_GB"
+          },
+          {
+              "title": "Victoria University Polytechnic",
+              "order": 122,
+              "value": "Victoria University Polytechnic",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Victoria University of Wellington",
+              "order": 123,
+              "value": "Victoria University of Wellington",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Waikato Institute of Technology",
+              "order": 124,
+              "value": "Waikato Institute of Technology",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Waterford Institute of Technology",
+              "order": 125,
+              "value": "Waterford Institute of Technology",
+              "visibleWhen": "country_IE"
+          },
+          {
+              "title": "Western Institute of Technology at Taranaki",
+              "order": 126,
+              "value": "Western Institute of Technology at Taranaki",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Whitireia Community Polytechnic",
+              "order": 127,
+              "value": "Whitireia Community Polytechnic",
+              "visibleWhen": "country_NZ"
+          },
+          {
+              "title": "Wodonga Institute of TAFE",
+              "order": 128,
+              "value": "Wodonga Institute of TAFE",
+              "visibleWhen": "country_AU"
+          },
+          {
+              "title": "Other",
+              "order": 129,
+              "value": "other",
+              "visibleWhen": null
+          }
+      ],
+      "gaEventAction": "University selected",
+      "gaEventKey": "university_",
+      "pendoEventKey": "organisation_names",
+      "auth0EventKey": [
+        "organisation_names"
+      ]
+    },
+    {
+      "id": "yearStudy",
+      "visibleWhen": [
+        "role_student"
+      ],
+      "unlockedWhen": "university",
+      "skipWhen": [
+        "country_other"
+      ],
+      "order": 3,
+      "title": "My year of study is",
+      "placeholder": "Please select a year of study",
+      "isSearchable": false,
+      "items": [
+        {
+          "title": "1",
+          "order": 0,
+          "value": "1",
+          "visibleWhen": null
+        },
+        {
+          "title": "2",
+          "order": 1,
+          "value": "2",
+          "visibleWhen": null
+        },
+        {
+          "title": "3",
+          "order": 2,
+          "value": "3",
+          "visibleWhen": null
+        },
+        {
+          "title": "4",
+          "order": 3,
+          "value": "4",
+          "visibleWhen": null
+        }
+      ],
+      "gaEventAction": "year of study selected",
+      "gaEventKey": "study_year_",
+      "pendoEventKey": "year_of_study",
+      "auth0EventKey": [
+        "year_of_study"
+      ]
+    }
+  ]
+}

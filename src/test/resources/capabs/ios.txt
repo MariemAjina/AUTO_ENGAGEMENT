@@ -1,5 +1,5 @@
 automationName=XCUITest
 platformVersion=17.2
 deviceName=iPhone 15 Pro
-app=/Users/mariemajina/IdeaProjects/TestAutoEngagement/src/test/resources/App/ios/SurviveMedUK 5.app
+app=/Users/azizhamdi/Desktop/TestAutoEngagement/src/test/resources/App/ios/SurviveMedUK.app
 platformName=iOS
