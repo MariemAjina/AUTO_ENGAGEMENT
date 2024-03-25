@@ -12,10 +12,13 @@ import locators.Home.HomeLocators;
 import locators.WelcomeScreen.WelcomeLocators;
 import org.openqa.selenium.By;
 import org.openqa.selenium.WebElement;
+import org.openqa.selenium.support.ui.ExpectedConditions;
+import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import utils.AppiumDriverFactory;
 import utils.MobileUtils;
 import globalData.Anatomy.Anatomy_Data;
+
 import java.util.List;
 import java.util.NoSuchElementException;
 
@@ -31,7 +34,6 @@ public class AnatomyPage {
     MobileUtils mobileUtils;
 
 
-
     public void VerifDipslayedCardBareBones() throws InterruptedException {
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
         Global_DataHomePage globalData = new Global_DataHomePage();
@@ -45,7 +47,7 @@ public class AnatomyPage {
                 // Trouver tous les éléments correspondant à votre XPath actuel
                 List<WebElement> elements = driver.findElements(By.xpath(HomeLocators.CARD_TITLE_PART1 + NamePackage + HomeLocators.CARD_TITLE_PART2));
                 for (WebElement element : elements) {
-                    System.out.println("elemen"+element);
+                    System.out.println("elemen" + element);
                     // Récupérer et afficher le texte de chaque élément
                     String text = element.getText();
                     // Vérifier si le texte souhaité est affiché
@@ -68,6 +70,7 @@ public class AnatomyPage {
         }
 
     }
+
     public void ScrollVersHaut() throws InterruptedException {
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
         Global_DataHomePage globalData = new Global_DataHomePage();
@@ -77,7 +80,7 @@ public class AnatomyPage {
             // Tant que de nouveaux éléments sont trouvés après le défilement
             while (newElementsFound) {
                 // Trouver tous les éléments correspondant à votre XPath actuel
-                List<WebElement> elements = driver.findElements(By.xpath( HomeLocators.CARD_TITLE_PART1 + NamePackage + HomeLocators.CARD_TITLE_PART2));
+                List<WebElement> elements = driver.findElements(By.xpath(HomeLocators.CARD_TITLE_PART1 + NamePackage + HomeLocators.CARD_TITLE_PART2));
                 for (WebElement element : elements) {
                     // Récupérer et afficher le texte de chaque élément
                     String text = element.getText();
@@ -95,30 +98,121 @@ public class AnatomyPage {
         }
     }
 
-    public void ClickOnAnatomyTheBareBones(){
+    public void ClickOnAnatomyTheBareBones() {
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
         for (String NamePackage : packagePrefixes) {
-            driver.findElement(By.xpath(locators_ANATOMY_BARE_BONES.ELEMENT_OnAnatomyTheBareBones_PART1+ NamePackage +locators_ANATOMY_BARE_BONES.ELEMENT_OnAnatomyTheBareBones_PART2)).click();
+            driver.findElement(By.xpath(locators_ANATOMY_BARE_BONES.ELEMENT_OnAnatomyTheBareBones_PART1 + NamePackage + locators_ANATOMY_BARE_BONES.ELEMENT_OnAnatomyTheBareBones_PART2)).click();
         }
     }
-    public void ClickOnElementAnatomicalPositionAndPlanes(){
+
+    public void ClickOnElementAnatomicalPositionAndPlanes() {
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
         for (String NamePackage : packagePrefixes) {
-            driver.findElement(By.id(NamePackage+locators_ANATOMY_BARE_BONES.ELEMENT_AnatomicalPositionAndPlanes)).click();
+            driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.ELEMENT_AnatomicalPositionAndPlanes)).click();
         }
     }
-    public void CheckZoom(){
+
+    public void ClickOnElementMovement() {
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+        AnatomyLoactors OBJ = new AnatomyLoactors();
         for (String NamePackage : packagePrefixes) {
-            driver.findElement(By.xpath(locators_ANATOMY_BARE_BONES.Picture)).click();
-            driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.Picture_FullScreen)).click();
-            WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.mobelite.emeeApp:id/txt_title_full_image']"));
-            String content = element.getText();
-            Assert.assertEquals(content, global_Data_ANATOMY_BARE_BONES.TitlePicture_ANATOMY_BARE_BONES, global_Data_ANATOMY_BARE_BONES.ErrorMsg);
+            WebElement element = driver.findElement(By.xpath(OBJ.ELEMENT_Movement));
+            element.click();
+        }
+    }
+
+    public void ClickOnElementDermatomes() {
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+        AnatomyLoactors OBJ = new AnatomyLoactors();
+        for (String NamePackage : packagePrefixes) {
+            WebElement element = driver.findElement(By.xpath(OBJ.ELEMENT_Dermatomes));
+            element.click();
+        }
+    }
+
+    public void ClickOnElementNervousSystem() {
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+        AnatomyLoactors OBJ = new AnatomyLoactors();
+        for (String NamePackage : packagePrefixes) {
+            WebElement element = driver.findElement(By.xpath(OBJ.ELEMENT_Nervous_System));
+            element.click();
+        }
+    }
+
+    //    public void CheckZoom(){
+//        driver = appiumDriverFactory.getDriver();
+//        mobileUtils = new MobileUtils(driver);
+//        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+//        for (String NamePackage : packagePrefixes) {
+//            driver.findElement(By.xpath(locators_ANATOMY_BARE_BONES.Picture)).click();
+//            driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.Picture_FullScreen)).click();
+//            WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.mobelite.emeeApp:id/txt_title_full_image']"));
+//            String content = element.getText();
+//            Assert.assertEquals(content, global_Data_ANATOMY_BARE_BONES.TitlePicture_ANATOMY_BARE_BONES, global_Data_ANATOMY_BARE_BONES.ErrorMsg);
+//            driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.IdClosePicture)).click();
+//        }
+//    }
+    public void CheckZoom() throws InterruptedException {
+        driver = appiumDriverFactory.getDriver();
+        mobileUtils = new MobileUtils(driver);
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+
+        for (String NamePackage : packagePrefixes) {
+            WebDriverWait wait = new WebDriverWait(driver, 10);
+            WebElement elements = wait.until(ExpectedConditions.elementToBeClickable(By.xpath(locators_ANATOMY_BARE_BONES.Picture)));
+            Thread.sleep(4000);
+            elements.click();
+
+
+//        driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.Picture_FullScreen)).click();
+//
+//        WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.mobelite.emeeApp:id/txt_title_full_image']"));
+//
+//        String content = element.getText();
+//
+//        Assert.assertEquals(content, global_Data_ANATOMY_BARE_BONES.TitlePicture_ANATOMY_BARE_BONES, global_Data_ANATOMY_BARE_BONES.ErrorMsg);
+
+            //driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.IdClosePicture)).click();
+
+        }
+
+    }
+
+    public void CheckZoomOUT() throws InterruptedException {
+        driver = appiumDriverFactory.getDriver();
+        mobileUtils = new MobileUtils(driver);
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+
+        for (String NamePackage : packagePrefixes) {
+
+
             driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.IdClosePicture)).click();
 
         }
+
     }
+
+    public void CheckImageFullScreen() throws InterruptedException {
+        driver = appiumDriverFactory.getDriver();
+        mobileUtils = new MobileUtils(driver);
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+
+        for (String NamePackage : packagePrefixes) {
+
+            driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.Picture_FullScreen)).click();
+
+            WebElement element = driver.findElement(By.xpath("//android.widget.TextView[@resource-id='com.mobelite.emeeApp:id/txt_title_full_image']"));
+
+            String content = element.getText();
+
+            Assert.assertEquals(content, global_Data_ANATOMY_BARE_BONES.TitlePicture_ANATOMY_BARE_BONES, global_Data_ANATOMY_BARE_BONES.ErrorMsg);
+
+            //driver.findElement(By.id(NamePackage + locators_ANATOMY_BARE_BONES.IdClosePicture)).click();
+
+        }
+
+    }
+
     //android.widget.ScrollView/android.view.ViewGroup/android.widget.ImageView[2]
     public void VisitWithoutAccount() {
         driver = appiumDriverFactory.getDriver();
@@ -128,7 +222,7 @@ public class AnatomyPage {
         String currentBundleId = null;
         if (driver instanceof AndroidDriver) {
             currentBundleId = ((AndroidDriver<MobileElement>) driver).getCurrentPackage();
-        }else if (driver instanceof IOSDriver) {
+        } else if (driver instanceof IOSDriver) {
             currentBundleId = getCurrentBundleId((IOSDriver<MobileElement>) driver);
         }
         // System.out.println("Package actuel : " + currentPackage);
@@ -186,6 +280,7 @@ public class AnatomyPage {
             // AndroidUtils.clickElementByIdWithPackage(driver, NamePackage,constraintLayoutHomeItem );
         }
     }
+
     public void WelcomeDisplayed() {
         driver = appiumDriverFactory.getDriver();
         mobileUtils = new MobileUtils(driver);
@@ -205,6 +300,7 @@ public class AnatomyPage {
             }
         }
     }
+
     public void HomePageDisplayed() {
         driver = appiumDriverFactory.getDriver();
         mobileUtils = new MobileUtils(driver);
@@ -224,6 +320,7 @@ public class AnatomyPage {
             }
         }
     }
+
     public void AnatomyModuleDisplayd() {
         driver = appiumDriverFactory.getDriver();
         mobileUtils = new MobileUtils(driver);
@@ -231,7 +328,7 @@ public class AnatomyPage {
         AnatomyLoactors OBJ = new AnatomyLoactors();
 
         for (String NamePackage : packagePrefixes) {
-            String welcomeElementSelector = MobileUtils.getFullId(NamePackage,OBJ.Title_Module_anatomy);
+            String welcomeElementSelector = MobileUtils.getFullId(NamePackage, OBJ.Title_Module_anatomy);
 
             // Utilisez la fonction objectExists en lui passant le sélecteur que vous avez créé
             boolean isWelcomeDisplayed = objectExists(By.id(welcomeElementSelector));
@@ -244,6 +341,7 @@ public class AnatomyPage {
             }
         }
     }
+
     public void verifyElementDisplayedById(String packageName, String resourceId) {
         try {
             WebElement element = driver.findElement(By.xpath(resourceId));
@@ -254,6 +352,7 @@ public class AnatomyPage {
             Assert.fail("Element not found: " + resourceId);
         }
     }
+
     public void verifyTitlesDisplayed() {
         Anatomy_Data globalData = new Anatomy_Data();
         List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
@@ -283,6 +382,22 @@ public class AnatomyPage {
         }
     }
 
+    public void backButton() throws InterruptedException {
+        driver = appiumDriverFactory.getDriver();
+        mobileUtils = new MobileUtils(driver);
+        AnatomyLoactors button = new AnatomyLoactors();
+        List<String> packagePrefixes = Global_Data.getAppPackagePrefixes();
+
+        //String elementId = UiSelectors.LOGIN_SCREEN_WELCOME_LAYOUT;
+        for (String NamePackage : packagePrefixes) {
+            String btn_back = MobileUtils.getFullId(NamePackage, button.back);
+
+            // Cliquez sur les éléments correspondant au package actuel
+            clickElementByIdWithPackage(driver, NamePackage, btn_back);
+
+        }
+
+    }
 
 }
 

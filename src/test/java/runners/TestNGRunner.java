@@ -17,7 +17,7 @@ import java.io.File;
         glue = {"steps"},
         // tags = {"@SmokeTest, @Login"},
         //tags = {"@CompleteProfile"},
-        tags = {"@ANATOMY,@Content-Check"},
+        tags = {"@ANATOMY,@Content-Check,@Check-Zoom&closeImage,@check-second-topic,@check-THIRD-topic, @check-Fourth-topic"},
         format = {
                 "pretty",
                 "html:target/cucumber-reports/cucumber-pretty",

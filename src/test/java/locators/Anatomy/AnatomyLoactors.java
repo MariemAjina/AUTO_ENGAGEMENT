@@ -5,6 +5,9 @@ public class AnatomyLoactors {
     public String ELEMENT_OnAnatomyTheBareBones_PART1 = "(//android.widget.ImageView[@resource-id=\"";
     public String ELEMENT_OnAnatomyTheBareBones_PART2 = ":id/image_item\"])[2]";
     public String ELEMENT_AnatomicalPositionAndPlanes = ":id/constraint_layout_content";
+    public String ELEMENT_Movement="(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[2]";
+    public String ELEMENT_Dermatomes="(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[3]";
+    public String ELEMENT_Nervous_System="(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[4]";
 
     public String Picture = "//android.widget.ScrollView/android.view.ViewGroup/android.widget.ImageView[2]";
     public String Picture_FullScreen = ":id/touch_image_full_screen";
@@ -14,5 +17,6 @@ public class AnatomyLoactors {
    public   String elementId2 = "(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[2]";
    public String elementId3 = "(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[3]";
    public String elementId4 = "(//android.view.ViewGroup[@resource-id=\"com.mobelite.emeeApp:id/constraint_layout_content\"])[4]";
+   public String back =":id/icon_back_anatomy";
 
 }
